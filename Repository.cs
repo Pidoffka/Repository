@@ -1,8 +1,6 @@
 ﻿using System;
 
-public class Class1
+public class Repository
 {
-	public Class1()
-	{
-	}
+    public int Aytana { get; set; }
 }
