@@ -1,6 +1,13 @@
 ﻿using System;
+using System.IO;
 
 public class Repository
 {
-    public int Aytana { get; set; }
+    public IEnumerable<User> Users => users;
+    private List<User> users;
+    public Repository()
+    {
+
+    }
+
 }
