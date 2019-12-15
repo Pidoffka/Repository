@@ -6,5 +6,6 @@ namespace Tamagochi.Repository
 {
     class Repository
     {
+        public string Aytana { get; set; }
     }
 }
