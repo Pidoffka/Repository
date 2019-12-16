@@ -51,5 +51,17 @@ namespace Tamagochi.Repository
             }
             return false;
         }
+        public List<Item> ShowItem(string type)
+        {
+            List<Item> _items = new List<Item>();
+            foreach (var item in items)
+            {
+                if(item.Type == type)
+                {
+                    _items.Add(item);
+                }
+            }
+            return _items;
+        }
     }
 }
