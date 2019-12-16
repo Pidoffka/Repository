@@ -14,17 +14,20 @@ namespace Tamagochi.Repository
         private List<User> users;
         public IEnumerable<Item> Items => items;
         private List<Item> items;
+        private double Duration;
         public Repository()
         {
             LoadData();
         }
         private const string usersfilename = "../../../../Tamagochi.Repository/Data/DataJson/Users.json";
         private const string itemsfilename = "../../../../Tamagochi.Repository/Data/DataJson/Items.json";
+        private const string durationfilename = "../../../../Tamagochi.Repository/Data/DataJson/Duration.json";
 
         private void LoadData()
         {
             users = JsonConvert.DeserializeObject<List<User>>(usersfilename);
             items = JsonConvert.DeserializeObject<List<Item>>(itemsfilename);
+            Duration = JsonConvert.DeserializeObject<double>(durationfilename);
         }
 
         public void SaveData()
@@ -39,6 +42,14 @@ namespace Tamagochi.Repository
             StreamWriter streamWriter = new StreamWriter(fileStream);
             streamWriter.Write(str);
         }
-
+        public bool CheckTime(User user)
+        {
+            TimeSpan interval = DateTime.Now - user.LastFeedingAt;
+            if(interval.TotalMinutes <= Duration)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
