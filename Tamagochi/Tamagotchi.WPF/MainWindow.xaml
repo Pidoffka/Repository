@@ -5,10 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tamagotchi.WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="600">
     <Grid>
-        <TextBlock>
-            pam pam
-        </TextBlock>
+        <Grid>
+            <StackPanel Grid.Column="0">
+                <Image Source="C:\Users\Айтана\source\repos\TeamProject\Tamagochi\Tamagotchi.WPF\Resources\tamagotchi.jpg" />
+            </StackPanel>
+        </Grid>
+
     </Grid>
 </Window>
