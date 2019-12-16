@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,14 @@ namespace Tamagotchi.WPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static MainWindow Current { get; private set; }
+
         public MainWindow()
         {
+            Language = XmlLanguage.GetLanguage(CultureInfo.CurrentUICulture.IetfLanguageTag);
             InitializeComponent();
+            Content = new Logon();
+            Current = this;
         }
     }
 }
