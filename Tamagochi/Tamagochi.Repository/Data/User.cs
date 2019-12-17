@@ -14,6 +14,7 @@ namespace Tamagochi.Repository.Data
         public DateTime LastFeedingAt { get; set; }
         public int Exp { get; set; }
         public int ExpLevel { get; set; }
+        public List<Item> Items { get; set; }
         public User(string login, string password, string name)
         {
             Exp = 0;
@@ -23,6 +24,7 @@ namespace Tamagochi.Repository.Data
             Login = login;
             Password = password;
             Name = name;
+            Items = new List<Item>();
         }
     }
 }
