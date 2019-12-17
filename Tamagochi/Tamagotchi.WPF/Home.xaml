@@ -7,61 +7,40 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Home">
-
+    <Page.Background>
+        <ImageBrush ImageSource="/Resources/living room.jpg"/>
+    </Page.Background>
     <Grid AllowDrop="True">
-
-        <Grid.Background>
-            <ImageBrush ImageSource="Resources\living room.jpg"/>
-        </Grid.Background>
-
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
 
-        <ProgressBar x:Name="Level" Minimum="0" Maximum="100" Value="75" Height="25" VerticalAlignment="Top" HorizontalAlignment="Center" />
-        <TextBlock Text="{Binding ElementName=pbStatus, Path=Value, StringFormat={}{0:0}%}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <StackPanel Grid.Row="1" Orientation="Vertical" VerticalAlignment="Center" Height="150" Width="190" >
+            <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Fill" Width="230" Height="170" HorizontalAlignment="Center">
+                <InkCanvas Height="170" Width="140" HorizontalAlignment="Stretch">
+                    <Image Source="Resources\korgi6.jpg"  Width="140" Height="150" Stretch="" VerticalAlignment="Top" HorizontalAlignment="Left" >
+                        <Image.Clip>
+                            <RectangleGeometry Rect="27,8,90,134" />
+                        </Image.Clip>
+                    </Image>
+                </InkCanvas>
+            </Viewbox>
 
-        <Image Source="Resources\korgi6.jpg" Grid.Row="2" Grid.Column="1" Width="140" Height="150" Stretch="UniformToFill" VerticalAlignment="Top" HorizontalAlignment="Left" >
-            <Image.Clip>
-                <RectangleGeometry Rect="27,8,90,134" />
-            </Image.Clip>
-        </Image>
-
-
-        <Button Grid.Row="3" Grid.Column="0" x:Name="FeedButton" Content="Feed" Width="180" Height="50" Margin="10" Background="PeachPuff" BorderThickness="4" Foreground="BlueViolet" FontSize="19" Click="FeedButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Button Grid.Row="3" Grid.Column="1" x:Name="BathButton" Content="Bath" Width="180" Height="50" Margin="10" Background="PeachPuff" BorderThickness="4" Foreground="BlueViolet" FontSize="19" Click="FeedButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Button Grid.Row="3" Grid.Column="2" x:Name="WalkButton" Content="Walk" Width="180" Height="50" Margin="10" Background="PeachPuff" BorderThickness="4" Foreground="BlueViolet" FontSize="19" Click="FeedButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Button Grid.Row="3" Grid.Column="3" x:Name="PlayButton" Content="Play" Width="180" Height="50" Margin="10" Background="PeachPuff" BorderThickness="4" Foreground="BlueViolet" FontSize="19" Click="FeedButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        
-
-        <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Height="300" Width="200">
-            
         </StackPanel>
         
-        <Button x:Name="RegisterButton" Content="Register" Cursor="Hand" Background="#003399" Foreground="White" BorderThickness="0" Height="32" HorizontalAlignment="Left" VerticalContentAlignment="Center" VerticalAlignment="Top" Click="RegisterButton_Click" RenderTransformOrigin="0.734,16.656" Margin="544,476,0,0" >
-            <Button.Style>
-                <Style TargetType="Button">
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type Button}">
-                                <Border Background="{TemplateBinding Background}">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </Button.Style>
-        </Button>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="100" Width="800" Margin="0,18,-28,0">
+            <Button x:Name="FeedButton" Content="Feed" Width="180" Height="50" Margin="10" Background="PeachPuff" BorderThickness="4" Foreground="BlueViolet" FontSize="19" Click="FeedButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button x:Name="BathButton" Content="Bath" Width="180" Height="50" Margin="10" Background="PeachPuff" BorderThickness="4" Foreground="BlueViolet" FontSize="19" Click="FeedButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button x:Name="WalkButton" Content="Walk" Width="180" Height="50" Margin="10" Background="PeachPuff" BorderThickness="4" Foreground="BlueViolet" FontSize="19" Click="FeedButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button x:Name="PlayButton" Content="Play" Width="180" Height="50" Margin="10" Background="PeachPuff" BorderThickness="4" Foreground="BlueViolet" FontSize="19" Click="FeedButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </StackPanel>
 
+        <StackPanel Grid.Row="0" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Height="300" Width="200">
+            <ProgressBar x:Name="Level" Minimum="0" Maximum="100" Value="30" Height="25" VerticalAlignment="Bottom"  />
+
+        </StackPanel>
+       
     </Grid>
 </Page>

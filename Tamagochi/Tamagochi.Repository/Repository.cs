@@ -63,5 +63,45 @@ namespace Tamagochi.Repository
             }
             return _items;
         }
+        public User checkUser(string login)
+        {
+            foreach (var user in users)
+            {
+                if (user.Login == login)
+                    return user;
+            }
+            return null;
+        }
+        public User newUser(string name, string login, string password)
+        {
+            User user = new User(login, password, name);
+            users.Add(user);
+            SaveData();
+            return user;
+        }
+        public void FeedToPet(User user)
+        {
+            user.LastFeedingAt = DateTime.Now;
+            user.Exp += 20; 
+        }
+        public void BuyTheItem(User user, Item item)
+        {
+            user.Exp += item.Exp;
+        }
+        private User AddExp(User user, int exp)
+        {
+            if(user.ExpLevel < user.Exp + exp)
+            {
+                user.Level += 1;
+                user.Exp = user.Exp + exp - user.ExpLevel;
+                user.ExpLevel = 30 + 20 * user.Level;
+            }
+            else
+            {
+                user.Exp = user.Exp + exp;
+            }
+            SaveData();
+            return user;
+        }
     }
 }
