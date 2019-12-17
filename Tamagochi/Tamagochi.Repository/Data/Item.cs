@@ -11,6 +11,7 @@ namespace Tamagochi.Repository.Data
         public int Price { get; set; }
         public string Type { get; set; }
         public int Exp { get; set; }
+        public string MyProperty { get; set; }
         // В магазине всегда доступно неограниченное количество вещей,
         // Но это свойство нужно для количества предметов у пользователя
         public int Amount { get; set; }
