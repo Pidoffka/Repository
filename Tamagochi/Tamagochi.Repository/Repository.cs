@@ -79,16 +79,17 @@ namespace Tamagochi.Repository
             SaveData();
             return user;
         }
-        public void FeedToPet(User user)
+        public bool BuyTheItem(User user, Item item)
         {
-            user.LastFeedingAt = DateTime.Now;
-            user.Exp += 20; 
+            if (user.Money >= item.Price)
+            {
+                user.Money -= item.Price;
+                CheckItems(user, item);
+                return true;
+            }
+            return false;
         }
-        public void BuyTheItem(User user, Item item)
-        {
-            user.Exp += item.Exp;
-        }
-        private User AddExp(User user, int exp)
+        private void AddExp(User user, int exp)
         {
             if(user.ExpLevel < user.Exp + exp)
             {
@@ -101,7 +102,35 @@ namespace Tamagochi.Repository
                 user.Exp = user.Exp + exp;
             }
             SaveData();
-            return user;
+        }
+        private void CheckItems(User user, Item item)
+        {
+            foreach (var newitem in user.Items)
+            {
+                if (item == newitem)
+                {
+                    newitem.Amount += 1;
+                }
+            }
+            Item item1 = new Item()
+            {
+                Name = item.Name,
+                Description = item.Description,
+                Price = item.Price,
+                Exp = item.Exp,
+                Type = item.Type,
+                Amount = 1
+            };
+            user.Items.Add(item1);
+        }
+        public void UseItems(User user, Item item)
+        {
+            if(item.Amount == 0)
+            {
+                item.Amount -= 1;
+                user.Items.Remove(item);
+                AddExp(user, item.Exp);
+            }
         }
     }
 }
