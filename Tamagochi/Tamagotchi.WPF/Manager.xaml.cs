@@ -9,29 +9,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Tamagochi.Repository;
 
 namespace Tamagotchi.WPF
 {
     /// <summary>
-    /// Логика взаимодействия для LogOn.xaml
+    /// Логика взаимодействия для Manager.xaml
     /// </summary>
-    public partial class LogOn : Window
+    public partial class Manager : Window
     {
-        private Repository repository = new Repository();
-        public LogOn()
+        public Manager()
         {
             InitializeComponent();
-        }
-
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void RegisterButton_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

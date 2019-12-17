@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Tamagochi.Repository.Data
 {
-    class User
+    public class User
     {
         public string Name { get; set; }
         public string Password { get; set; }
