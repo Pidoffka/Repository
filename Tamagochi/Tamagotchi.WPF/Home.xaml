@@ -14,21 +14,30 @@
             <ImageBrush ImageSource="C:\Users\Айтана\source\repos\TeamProject\Tamagochi\Tamagotchi.WPF\Resources\living room.jpg"/>
         </Grid.Background>
 
-        <StackPanel Orientation="Vertical" VerticalAlignment="Center" Height="500" Margin="0,0,-28,0">
-            <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform" Width="400" Height="300">
-                <InkCanvas>
-                    <Image Source="C:\Users\Айтана\source\repos\TeamProject\Tamagochi\Tamagotchi.WPF\Resources\korgi6.jpg"  Width="400" Height="290" HorizontalAlignment="Center" >
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" Height="150" Width="190" >
+            <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Fill" Width="230" Height="170" HorizontalAlignment="Center">
+                <InkCanvas Height="170" Width="140" HorizontalAlignment="Stretch">
+                    <Image Source="C:\Users\Айтана\source\repos\TeamProject\Tamagochi\Tamagotchi.WPF\Resources\korgi6.jpg"  Width="140" Height="150" Stretch="UniformToFill" VerticalAlignment="Top" HorizontalAlignment="Left" >
                         <Image.Clip>
-                            <RectangleGeometry Rect="26,8,90,134" />
+                            <RectangleGeometry Rect="27,8,90,134" />
                         </Image.Clip>
-                        
                     </Image>
                 </InkCanvas>
             </Viewbox>
-            <TextBlock Text="Living Room" FontSize="26" />
-            
-            <Button x:Name="FeedButton" Content="Feed" Width="70" Height="70" Margin="9" Background="PeachPuff" BorderThickness="0" Foreground="BlueViolet" FontSize="19" Click="FeedButton_Click" />
+
         </StackPanel>
+        
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="100" Width="800" Margin="0,18,-28,0">
+            <Button x:Name="FeedButton" Content="Feed" Width="180" Height="50" Margin="10" Background="PeachPuff" BorderThickness="4" Foreground="BlueViolet" FontSize="19" Click="FeedButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button x:Name="BathButton" Content="Bath" Width="180" Height="50" Margin="10" Background="PeachPuff" BorderThickness="4" Foreground="BlueViolet" FontSize="19" Click="FeedButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button x:Name="WalkButton" Content="Walk" Width="180" Height="50" Margin="10" Background="PeachPuff" BorderThickness="4" Foreground="BlueViolet" FontSize="19" Click="FeedButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button x:Name="PlayButton" Content="Play" Width="180" Height="50" Margin="10" Background="PeachPuff" BorderThickness="4" Foreground="BlueViolet" FontSize="19" Click="FeedButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Height="300" Width="200">
+            
+        </StackPanel>
+        
         <Button x:Name="RegisterButton" Content="Register" Cursor="Hand" Background="#003399" Foreground="White" BorderThickness="0" Height="32" HorizontalAlignment="Left" VerticalContentAlignment="Center" VerticalAlignment="Top" Click="RegisterButton_Click" RenderTransformOrigin="0.734,16.656" Margin="544,476,0,0" >
             <Button.Style>
                 <Style TargetType="Button">
@@ -44,5 +53,6 @@
                 </Style>
             </Button.Style>
         </Button>
+
     </Grid>
 </Page>

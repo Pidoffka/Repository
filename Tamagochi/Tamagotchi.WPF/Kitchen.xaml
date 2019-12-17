@@ -1,0 +1,32 @@
+﻿<Window x:Class="Tamagotchi.WPF.Kitchen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tamagotchi.WPF"
+        mc:Ignorable="d"
+        Title="Kitchen" Height="450" Width="800">
+    
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\Айтана\source\repos\TeamProject\Tamagochi\Tamagotchi.WPF\Resources\kitchen.jpg"/>
+        </Grid.Background>
+
+        <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="152" Height="150">
+            <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Fill" Width="230" Height="170" HorizontalAlignment="Center">
+                <InkCanvas Height="170" Width="140" HorizontalAlignment="Stretch">
+                    <Image Source="C:\Users\Айтана\source\repos\TeamProject\Tamagochi\Tamagotchi.WPF\Resources\korgi6.jpg"  Width="140" Height="155" Stretch="UniformToFill" VerticalAlignment="Top" HorizontalAlignment="Left" >
+                        <Image.Clip>
+                            <RectangleGeometry Rect="27,8,90,134" />
+                        </Image.Clip>
+                    </Image>
+                </InkCanvas>
+            </Viewbox>
+            
+            
+            
+        </StackPanel>
+        
+        
+    </Grid>
+</Window>
