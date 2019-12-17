@@ -63,5 +63,21 @@ namespace Tamagochi.Repository
             }
             return _items;
         }
+        public User checkUser(string login)
+        {
+            foreach (var user in users)
+            {
+                if (user.Login == login)
+                    return user;
+            }
+            return null;
+        }
+        public User newUser(string name, string login, string password)
+        {
+            User user = new User(login, password, name);
+            users.Add(user);
+            SaveData();
+            return user;
+        }
     }
 }
