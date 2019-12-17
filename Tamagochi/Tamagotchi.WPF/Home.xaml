@@ -16,20 +16,16 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
-        <Image Source="Resources\korgi7.png" Grid.Row="1" Grid.Column="1" Width="220" Height="150" Stretch="UniformToFill" VerticalAlignment="Center" HorizontalAlignment="Center" >
+        <Image Source="Resources\korgi7.png" Grid.Row="1" Grid.Column="1" Width="220" Height="150" Stretch="UniformToFill" VerticalAlignment="ce" HorizontalAlignment="Center" >
         </Image>
-
         <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="100" Width="800" Margin="0,18,-28,0">
             <Button x:Name="FeedButton" Content="Feed" Width="180" Height="50" Margin="10" Background="PeachPuff" BorderThickness="4" Foreground="BlueViolet" FontSize="19" Click="FeedButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <Button x:Name="BathButton" Content="Bath" Width="180" Height="50" Margin="10" Background="PeachPuff" BorderThickness="4" Foreground="BlueViolet" FontSize="19" Click="FeedButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <Button x:Name="WalkButton" Content="Walk" Width="180" Height="50" Margin="10" Background="PeachPuff" BorderThickness="4" Foreground="BlueViolet" FontSize="19" Click="FeedButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <Button x:Name="PlayButton" Content="Play" Width="180" Height="50" Margin="10" Background="PeachPuff" BorderThickness="4" Foreground="BlueViolet" FontSize="19" Click="FeedButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </StackPanel>
-
         <StackPanel Grid.Row="0" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Height="300" Width="200">
             <ProgressBar x:Name="Level" Minimum="0" Maximum="100" Value="30" Height="25" VerticalAlignment="Bottom"  />
         </StackPanel>
-       
     </Grid>
 </Page>
