@@ -8,7 +8,7 @@ using Tamagochi.Repository.Data;
 
 namespace Tamagochi.Repository
 {
-    class Repository
+    public class Repository
     {
         public IEnumerable<User> Users => users;
         private List<User> users;

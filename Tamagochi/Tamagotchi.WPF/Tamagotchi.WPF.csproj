@@ -21,6 +21,10 @@
     <None Remove="Resources\tamagotchi.jpg" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Tamagochi.Repository\Tamagochi.Repository.csproj" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <Resource Include="Resources\tamagotchi.jpg" />
