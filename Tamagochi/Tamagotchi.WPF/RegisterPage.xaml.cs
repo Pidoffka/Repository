@@ -29,7 +29,7 @@ namespace Tamagotchi.WPF
 
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
-            if (App.Current.ParkingManager.Users.FindIndex(u => u.Login == LoginBox.Text) != -1)
+            if (App.Current.Tamagochi.Repository.Users.FindIndex(u => u.Login == LoginBox.Text) != -1)
             {
                 Helpers.ShowError("User with same login already exists", "Registration failed");
                 return;
