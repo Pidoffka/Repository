@@ -79,5 +79,29 @@ namespace Tamagochi.Repository
             SaveData();
             return user;
         }
+        public void FeedToPet(User user)
+        {
+            user.LastFeedingAt = DateTime.Now;
+            user.Exp += 20; 
+        }
+        public void BuyTheItem(User user, Item item)
+        {
+            user.Exp += item.Exp;
+        }
+        private User AddExp(User user, int exp)
+        {
+            if(user.ExpLevel < user.Exp + exp)
+            {
+                user.Level += 1;
+                user.Exp = user.Exp + exp - user.ExpLevel;
+                user.ExpLevel = 30 + 20 * user.Level;
+            }
+            else
+            {
+                user.Exp = user.Exp + exp;
+            }
+            SaveData();
+            return user;
+        }
     }
 }

@@ -17,7 +17,7 @@ namespace Tamagochi.Repository.Data
         public User(string login, string password, string name)
         {
             Exp = 0;
-            ExpLevel = 50 + 20 * Level;
+            ExpLevel = 30 + 20 * Level;
             Money = 0;
             LastFeedingAt = DateTime.Now;
             Login = login;
