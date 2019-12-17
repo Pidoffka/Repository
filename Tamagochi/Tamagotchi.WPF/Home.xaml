@@ -10,25 +10,18 @@
     <Page.Background>
         <ImageBrush ImageSource="/Resources/living room.jpg"/>
     </Page.Background>
-    <Grid AllowDrop="True">
+    <Grid AllowDrop="True" Margin="2,0,-2,0">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="1" Orientation="Vertical" VerticalAlignment="Center" Height="150" Width="190" >
-            <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Fill" Width="230" Height="170" HorizontalAlignment="Center">
-                <InkCanvas Height="170" Width="140" HorizontalAlignment="Stretch">
-                    <Image Source="Resources\korgi6.jpg"  Width="140" Height="150" Stretch="" VerticalAlignment="Top" HorizontalAlignment="Left" >
-                        <Image.Clip>
-                            <RectangleGeometry Rect="27,8,90,134" />
-                        </Image.Clip>
-                    </Image>
-                </InkCanvas>
-            </Viewbox>
-
-        </StackPanel>
+        <Image Source="Resources\korgi7.png" Grid.Row="1" Grid.Column="1" Width="200" Height="150" Stretch="UniformToFill" VerticalAlignment="Top" HorizontalAlignment="Left" >
+        </Image>
+                
+           
+       
         
         <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="100" Width="800" Margin="0,18,-28,0">
             <Button x:Name="FeedButton" Content="Feed" Width="180" Height="50" Margin="10" Background="PeachPuff" BorderThickness="4" Foreground="BlueViolet" FontSize="19" Click="FeedButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
