@@ -10,7 +10,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\Айтана\source\repos\TeamProject\Tamagochi\Tamagotchi.WPF\Resources\Tamagotchi.jpg"/>
+            <ImageBrush ImageSource="Resources\Tamagotchi.jpg"/>
         </Grid.Background>
         <StackPanel Orientation="Vertical" VerticalAlignment="Top" Height="200" Margin="-28,355,0,0">
 

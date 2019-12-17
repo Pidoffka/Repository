@@ -11,13 +11,13 @@
     <Grid AllowDrop="True">
 
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\Айтана\source\repos\TeamProject\Tamagochi\Tamagotchi.WPF\Resources\living room.jpg"/>
+            <ImageBrush ImageSource="Resources\living room.jpg"/>
         </Grid.Background>
 
         <StackPanel Orientation="Vertical" VerticalAlignment="Center" Height="150" Width="190" >
             <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Fill" Width="230" Height="170" HorizontalAlignment="Center">
                 <InkCanvas Height="170" Width="140" HorizontalAlignment="Stretch">
-                    <Image Source="C:\Users\Айтана\source\repos\TeamProject\Tamagochi\Tamagotchi.WPF\Resources\korgi6.jpg"  Width="140" Height="150" Stretch="UniformToFill" VerticalAlignment="Top" HorizontalAlignment="Left" >
+                    <Image Source="Resources\korgi6.jpg"  Width="140" Height="150" Stretch="UniformToFill" VerticalAlignment="Top" HorizontalAlignment="Left" >
                         <Image.Clip>
                             <RectangleGeometry Rect="27,8,90,134" />
                         </Image.Clip>
@@ -35,7 +35,8 @@
         </StackPanel>
 
         <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Height="300" Width="200">
-            
+            <ProgressBar x:Name="Level" Minimum="0" Maximum="100" Value="30" Height="25" VerticalAlignment="Bottom"  />
+
         </StackPanel>
         
         <Button x:Name="RegisterButton" Content="Register" Cursor="Hand" Background="#003399" Foreground="White" BorderThickness="0" Height="32" HorizontalAlignment="Left" VerticalContentAlignment="Center" VerticalAlignment="Top" Click="RegisterButton_Click" RenderTransformOrigin="0.734,16.656" Margin="544,476,0,0" >
