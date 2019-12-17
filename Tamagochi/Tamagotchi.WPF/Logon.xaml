@@ -8,14 +8,12 @@
       Name="LogonPage"
       Title="Logon" Height="525" Width="732">
 
-    <Grid Background="White">
-        <StackPanel Orientation="Vertical" VerticalAlignment="Center" Height="527" Margin="0,0,-28,0">
-            <Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform" Width="400">
-                <InkCanvas>
-                    <Image Source="C:\Users\Айтана\source\repos\TeamProject\Tamagochi\Tamagotchi.WPF\Resources\tamagotchi.jpg"  Width="400" Height="290"  />
-                </InkCanvas>
-            </Viewbox>
-            <TextBlock Text="Tamagotchi" HorizontalAlignment="Center" FontSize="26" Margin="0 16 0 16" />
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\Айтана\source\repos\TeamProject\Tamagochi\Tamagotchi.WPF\Resources\Tamagotchi.jpg"/>
+        </Grid.Background>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Top" Height="200" Margin="-28,355,0,0">
+
             <TextBlock Text="Login" Width="248" />
             <TextBox x:Name="LoginBox" Margin="4" Width="248" Height="32" FontSize="16" VerticalAlignment="Center" VerticalContentAlignment="Center" />
             <TextBlock Text="Password" Width="248" />
@@ -31,7 +29,7 @@
             </PasswordBox>
             <Button x:Name="LoginButton" Content="Login" Width="248" Height="32" Margin="4" Background="#003399" BorderThickness="0" Foreground="White" FontSize="14" Click="LoginButton_Click" />
         </StackPanel>
-        <Button x:Name="RegisterButton" Content="Register" Cursor="Hand" Background="#003399" Foreground="White" BorderThickness="0" Height="32" HorizontalAlignment="Left" VerticalContentAlignment="Center" VerticalAlignment="Top" Click="RegisterButton_Click" RenderTransformOrigin="0.734,16.656" Margin="544,476,0,0" >
+        <Button x:Name="RegisterButton" Content="Register" Cursor="Hand" Background="#003399" Foreground="White" BorderThickness="0" Height="32" HorizontalAlignment="Left" VerticalContentAlignment="Center" VerticalAlignment="Top" Click="RegisterButton_Click" RenderTransformOrigin="0.734,16.656" Margin="540,474,0,0" >
             <Button.Style>
                 <Style TargetType="Button">
                     <Setter Property="Template">
