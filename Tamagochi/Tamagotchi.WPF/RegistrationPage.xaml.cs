@@ -49,7 +49,7 @@ namespace Tamagotchi.WPF
                 MessageBox.Show("Enter password please", "Error");
                 return;
             }
-            _user = _repository.checkUser(LoginBox.Text);
+            _user = _repository.checkUser<string>(LoginBox.Text, null);
             if(_user != null)
             {
                 MessageBox.Show("This user is already exist", "Error");

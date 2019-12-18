@@ -84,12 +84,21 @@ namespace Tamagochi.Repository
             }
             return _items;
         }
-        public User checkUser(string login)
+        public User checkUser<T>(string login, T password)
         {
             foreach (var user in users)
             {
-                if (user.Login == login)
-                    return user;
+                if (password == null)
+                {
+                    if (user.Login == login)
+                        return user;
+                }
+                else
+                {
+                    if (user.Login == login & user.Password == password.ToString())
+                        return user;
+                }
+                 
             }
             return null;
         }
