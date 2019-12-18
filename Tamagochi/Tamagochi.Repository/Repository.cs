@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Text;
 using Tamagochi.Repository.Data;
 
@@ -14,12 +15,13 @@ namespace Tamagochi.Repository
         private List<User> users;
         public IEnumerable<Item> Items => items;
         private List<Item> items;
-        public IEnumerable<string> TypeOfItems => typeofitems;
-        private List<string> typeofitems;
+        public IEnumerable<Item> TypeOfItems => typeofitems;
+        private List<Item> typeofitems;
         private double Duration;
         public Repository()
         {
             LoadData();
+            FindTypeOfItems();
         }
         private const string usersfilename = "../../../../Tamagochi.Repository/Data/DataJson/Users.json";
         private const string itemsfilename = "../../../../Tamagochi.Repository/Data/DataJson/Items.json";
@@ -30,7 +32,6 @@ namespace Tamagochi.Repository
             users = Deserialize<List<User>>(usersfilename);
             items = Deserialize<List<Item>>(itemsfilename);
             var data = Deserialize<Data>(datafilename);
-            typeofitems = data.TypeItems;
             Duration = data.MinDuration;
         }
 
@@ -40,8 +41,7 @@ namespace Tamagochi.Repository
             Serialize(usersfilename, users);
             var data = new Data
             {
-                MinDuration = Duration,
-                TypeItems = typeofitems
+                MinDuration = Duration
             };
             Serialize(datafilename, data);
         }
@@ -151,6 +151,18 @@ namespace Tamagochi.Repository
                 user.Items.Remove(item);
                 AddExp(user, item.Exp);
             }
+        }
+        public void FindTypeOfItems()
+        {
+            var types = new List<Item>();
+            foreach (var item in items)
+            {
+                if(types.Where(x => x.Type == item.Type).Count() == 0)
+                {
+                    types.Add(item);
+                }
+            }
+            typeofitems = types;
         }
     }
 }

@@ -32,9 +32,30 @@ namespace Tamagotchi.WPF
             LevelB.Text = _user.Level.ToString();
             MoneyBox.Text = _user.Money.ToString();
             TypeOfItems.ItemsSource = _repository.TypeOfItems;
+            UserItems.ItemsSource = _user.Items;
         }
 
         private void FeedButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TypeOfItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var item = TypeOfItems.SelectedItem as Item;
+            if(item == null)
+            {
+                MessageBox.Show("Choose Type of items", "error");
+                return;
+            }
+        }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+        }
+
+        private void Return_Click(object sender, RoutedEventArgs e)
         {
 
         }
