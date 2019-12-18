@@ -14,6 +14,8 @@ namespace Tamagochi.Repository
         private List<User> users;
         public IEnumerable<Item> Items => items;
         private List<Item> items;
+        public IEnumerable<string> TypeOfItems => typeofitems;
+        private List<string> typeofitems;
         private double Duration;
         public Repository()
         {
@@ -21,35 +23,54 @@ namespace Tamagochi.Repository
         }
         private const string usersfilename = "../../../../Tamagochi.Repository/Data/DataJson/Users.json";
         private const string itemsfilename = "../../../../Tamagochi.Repository/Data/DataJson/Items.json";
-        private const string durationfilename = "../../../../Tamagochi.Repository/Data/DataJson/Duration.json";
+        private const string datafilename = "../../../../Tamagochi.Repository/Data/DataJson/Data.json";
 
         private void LoadData()
         {
-            users = JsonConvert.DeserializeObject<List<User>>(usersfilename);
-            items = JsonConvert.DeserializeObject<List<Item>>(itemsfilename);
-            Duration = JsonConvert.DeserializeObject<double>(durationfilename);
+            users = Deserialize<List<User>>(usersfilename);
+            items = Deserialize<List<Item>>(itemsfilename);
+            var data = Deserialize<Data>(datafilename);
+            typeofitems = data.TypeItems;
+            Duration = data.MinDuration;
         }
 
         public void SaveData()
         {
-            Serialize(items, itemsfilename);
-            Serialize(users, usersfilename);
-        }
-        private void Serialize<T>(T obj, string path)
-        {
-            string str = JsonConvert.SerializeObject(obj);
-            FileStream fileStream = new FileStream(path, FileMode.OpenOrCreate);
-            StreamWriter streamWriter = new StreamWriter(fileStream);
-            streamWriter.Write(str);
-        }
-        public bool CheckTime(User user)
-        {
-            TimeSpan interval = DateTime.Now - user.LastFeedingAt;
-            if(interval.TotalMinutes <= Duration)
+            Serialize(itemsfilename, items);
+            Serialize(usersfilename, users);
+            var data = new Data
             {
-                return true;
+                MinDuration = Duration,
+                TypeItems = typeofitems
+            };
+            Serialize(datafilename, data);
+        }
+        private class Data
+        {
+            public List<string> TypeItems { get; set; }
+            public double MinDuration { get; set; }
+        }
+        private void Serialize<T>(string fileName, T data)
+        {
+            using (var sw = new StreamWriter(fileName))
+            {
+                using (var jsonWriter = new JsonTextWriter(sw))
+                {
+                    var serializer = new JsonSerializer();
+                    serializer.Serialize(jsonWriter, data);
+                }
             }
-            return false;
+        }
+        private T Deserialize<T>(string fileName)
+        {
+            using (var sr = new StreamReader(fileName))
+            {
+                using (var jsonReader = new JsonTextReader(sr))
+                {
+                    var serializer = new JsonSerializer();
+                    return serializer.Deserialize<T>(jsonReader);
+                }
+            }
         }
         public List<Item> ShowItem(string type)
         {
@@ -72,12 +93,11 @@ namespace Tamagochi.Repository
             }
             return null;
         }
-        public User newUser(string name, string login, string password)
+        public void newUser(string name, string login, string password)
         {
             User user = new User(login, password, name);
             users.Add(user);
             SaveData();
-            return user;
         }
         public bool BuyTheItem(User user, Item item)
         {

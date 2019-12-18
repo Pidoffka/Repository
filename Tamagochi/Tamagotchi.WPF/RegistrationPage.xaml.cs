@@ -9,6 +9,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Tamagochi.Repository;
+using Tamagochi.Repository.Data;
 
 namespace Tamagotchi.WPF
 {
@@ -17,9 +19,44 @@ namespace Tamagotchi.WPF
     /// </summary>
     public partial class RegistrationPage : Window
     {
-        public RegistrationPage()
+        private Repository _repository;
+        private User _user;
+        public RegistrationPage(Repository repository)
         {
             InitializeComponent();
+            _repository = repository;
+        }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+        }
+
+        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (NameBox.Text == "")
+            {
+                MessageBox.Show("Enter Name please", "Error");
+                return;
+            }
+            if (LoginBox.Text == "")
+            {
+                MessageBox.Show("Enter login please", "Error");
+                return;
+            }
+            if (PasswordBox.Password == "")
+            {
+                MessageBox.Show("Enter password please", "Error");
+                return;
+            }
+            _user = _repository.checkUser(LoginBox.Text);
+            if(_user != null)
+            {
+                MessageBox.Show("This user is already exist", "Error");
+                return;
+            }
+            _repository.newUser(NameBox.Text, LoginBox.Text, PasswordBox.Password);
+            MessageBox.Show("Registration is completed", "Success");
         }
     }
 }

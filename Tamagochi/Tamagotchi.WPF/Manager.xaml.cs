@@ -9,6 +9,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Tamagochi.Repository;
+using Tamagochi.Repository.Data;
 
 namespace Tamagotchi.WPF
 {
@@ -17,9 +19,24 @@ namespace Tamagotchi.WPF
     /// </summary>
     public partial class Manager : Window
     {
-        public Manager()
+        private Repository _repository;
+        private User _user;
+        public Manager(User user, Repository repository)
         {
             InitializeComponent();
+            _user = user;
+            _repository = repository;
+            Level.Value = _user.Exp;
+            Level.Maximum = _user.ExpLevel;
+            NameBox.Text = _user.Name;
+            LevelB.Text = _user.Level.ToString();
+            MoneyBox.Text = _user.Money.ToString();
+            TypeOfItems.ItemsSource = _repository.TypeOfItems;
+        }
+
+        private void FeedButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Tamagochi.Repository.Data
         public string Login { get; set; }
         public int Level { get; set; }
         public int Money { get; set; }
-        public DateTime LastFeedingAt { get; set; }
+        public DateTime? LastFeedingAt { get; set; }
         public int Exp { get; set; }
         public int ExpLevel { get; set; }
         public List<Item> Items { get; set; }

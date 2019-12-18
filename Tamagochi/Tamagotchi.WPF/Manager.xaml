@@ -5,43 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tamagotchi.WPF"
         mc:Ignorable="d"
-        Title="Manager" Height="452" Width="950">
+        Title="Manager" Height="446" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="750"/>
-            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="600"/>
+            <ColumnDefinition Width="200"/>
         </Grid.ColumnDefinitions>
         <TabControl>
             <TabItem Header="Home" Width="120">
                 <Grid>
                     <Grid.Background>
-                        <ImageBrush ImageSource="/Resources/living room.jpg"/>
+                        <ImageBrush ImageSource="/Resources/livingroom.jpg"/>
                     </Grid.Background>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Image Source="Resources\korgi7.png" Grid.Row="1" Width="220" Height="150" Stretch="UniformToFill"
-                               VerticalAlignment="Center" HorizontalAlignment="Center" >
+                    <Image Source="/Resources/korgi7.png" Grid.Row="1" Width="220" Height="150" Stretch="UniformToFill"
+                               VerticalAlignment="Center" HorizontalAlignment="Left" Margin="137,0,0,0" AutomationProperties.IsColumnHeader="True" >
                     </Image>
-                    <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="100" Width="800" Margin="0,18,-28,0">
-                        <Button x:Name="FeedButton" Content="Feed" Width="140" Height="50" Margin="10" Background="PeachPuff" BorderThickness="4" Foreground="BlueViolet" FontSize="19" Click="FeedButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <Button x:Name="BathButton" Content="Bath" Width="140" Height="50" Margin="10" Background="PeachPuff" BorderThickness="4" Foreground="BlueViolet" FontSize="19" Click="FeedButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <Button x:Name="WalkButton" Content="Walk" Width="140" Height="50" Margin="10" Background="PeachPuff" BorderThickness="4" Foreground="BlueViolet" FontSize="19" Click="FeedButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <Button x:Name="PlayButton" Content="Play" Width="140" Height="50" Margin="10" Background="PeachPuff" BorderThickness="4" Foreground="BlueViolet" 
-                                    FontSize="19" Click="FeedButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="100">
+                        <Button x:Name="FeedButton" Content="feed" Width="140" Height="50" Margin="10" Background="PeachPuff" BorderThickness="4"
+                                Foreground="BlueViolet" FontSize="14" Click="FeedButton_Click"/>
+                        <Button x:Name="PlayButton" Content="play" Width="140" Height="50" Margin="10" Background="PeachPuff" BorderThickness="4" Foreground="BlueViolet" 
+                                    FontSize="14" Click="FeedButton_Click"/>
                     </StackPanel>
                 </Grid>
             </TabItem>
             <TabItem Header="Shop" Width="120">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="auto"/>
                         <RowDefinition/>
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
-                    <GroupBox Header="Type of Items">
+                    <GroupBox Header="Type of Items" Height="45">
                         <ComboBox x:Name="TypeOfItems" IsEditable="False" IsReadOnly="True" ContextMenu="{Binding Name}"/>
                     </GroupBox>
                     <ListBox Grid.Row="1" x:Name="ListOfItems">
@@ -59,20 +58,25 @@
                     </ListBox>
                     <WrapPanel Grid.Row="2" HorizontalAlignment="Center">
                         <Button x:Name="Buy" Content="Buy" Width="150" Margin="10 0"></Button>
-                        <Button x:Name="Cancel" Content="Cancel" Width="150"></Button>
                     </WrapPanel>
                 </Grid>
             </TabItem>
         </TabControl>
-        
+
         <WrapPanel Orientation="Vertical" Grid.Column="1" Background="LightPink" Width="200">
-            <TextBlock Text="Name:" FontSize="20"></TextBlock>
-            <TextBlock Text="{Binding Name}" FontSize="20"></TextBlock>
-            <TextBlock Text="Login:" FontSize="20"></TextBlock>
-            <TextBlock Text="{Binding Login}" FontSize="20"></TextBlock>
-            <TextBlock Text="Level:" FontSize="20"></TextBlock>
-            <TextBlock Text="{Binding Level}" FontSize="20"></TextBlock>
-            <ProgressBar x:Name="Level" Minimum="0" Maximum="100" Value="30" Height="25" Width="200" VerticalAlignment="Bottom" Margin="0"  />
+            <GroupBox Header="Name">
+                <TextBlock  x:Name="NameBox" Text="{Binding Name}"></TextBlock>
+            </GroupBox>
+            <GroupBox Header="Money">
+                <TextBlock x:Name="MoneyBox" Text="{Binding Money}"></TextBlock>
+            </GroupBox>
+            <GroupBox Header="Level" Margin="0 5">
+                <TextBlock x:Name="LevelB" Text="{Binding Level}"></TextBlock>
+            </GroupBox>
+            <GroupBox Header="Progress Bar">
+                <ProgressBar x:Name="Level" Minimum="0" Height="25" Width="200" VerticalAlignment="Bottom" Margin="0"  />
+            </GroupBox>
+            <Button x:Name="Cancel" Content="Cancel" Width="150" Margin="0 232 0 0"></Button>
         </WrapPanel>
     </Grid>
 </Window>

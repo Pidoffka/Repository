@@ -18,15 +18,15 @@
             <TextBox x:Name="LoginBox" Margin="4" Width="248" Height="32" FontSize="16" VerticalAlignment="Center" VerticalContentAlignment="Center" />
             <TextBlock Text="Password" Width="248" />
             <PasswordBox x:Name="PasswordBox" Margin="4" Width="248" Height="32" VerticalContentAlignment="Center" />
-            <Button x:Name="RegisterButton" Content="Register"
+            <Button x:Name="RegisterButton" Content="sign up"
                     Width="248" Height="32" Margin="4" Background="#003399" BorderThickness="0"
                      Foreground="White" FontSize="14" Click="RegisterButton_Click" />
         </StackPanel>
-        <Button Grid.Row="1" x:Name="Cancel" Content="Cancel" FontSize="14"
+        <Button Grid.Row="1" x:Name="Cancel" Content="cancel" FontSize="14"
                 Cursor="Hand" Width="248" Background="#003399" Foreground="White"
                 BorderThickness="0" Height="32" HorizontalAlignment="Center"
                 VerticalContentAlignment="Center" VerticalAlignment="Bottom"
-                Click="GoBackButton_Click" Margin="0 5">
+                Click="Cancel_Click" Margin="0 5">
         </Button>
 
     </Grid>
