@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tamagotchi.WPF"
         mc:Ignorable="d"
-        Title="LogOn" Height="555" Width="802">
+        Title="LogOn" Height="555" Width="800"
+        WindowStartupLocation="CenterScreen">
     <Grid Cursor="Hand">
         <Grid.RowDefinitions>
             <RowDefinition/>

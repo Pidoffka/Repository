@@ -41,7 +41,7 @@ namespace Tamagotchi.WPF
             if (user != null)
             {
                 var window = new Manager(user, repository);
-                window.ShowDialog();
+                window.Show();
             }
             else
             {
@@ -53,7 +53,7 @@ namespace Tamagotchi.WPF
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
             var window = new RegistrationPage(repository);
-            window.ShowDialog();
+            window.Show();
         }
     }
 }

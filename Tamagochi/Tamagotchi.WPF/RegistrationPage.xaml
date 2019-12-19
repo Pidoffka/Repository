@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tamagotchi.WPF"
         mc:Ignorable="d"
-        Title="RegistrationPage" Height="333" Width="518">
+        Title="RegistrationPage" Height="333" Width="518"
+        WindowStartupLocation="CenterScreen">
     <Grid  Background="Orange">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>

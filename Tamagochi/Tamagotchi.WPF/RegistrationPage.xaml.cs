@@ -29,7 +29,7 @@ namespace Tamagotchi.WPF
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-            DialogResult = false;
+            this.Close();
         }
 
         private void RegisterButton_Click(object sender, RoutedEventArgs e)

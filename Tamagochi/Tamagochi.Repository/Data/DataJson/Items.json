@@ -1,1 +1,21 @@
-[{"Name":"Meat","Description":"Tasty meat","Price":100,"Type":"food","Exp":20,"Amount":0},{"Name":"Sausage","Description":"Tasty sausage","Price":80,"Type":"food","Exp":20,"Amount":0}]
+[
+  {
+    "Name": "Meat",
+    "Description": "Tasty meat",
+    "Price": 100,
+    "Type": "food",
+    "Exp": 20,
+    "Amount": 0,
+    "ImagePath": "/Resources/meat.png"
+  },
+  {
+    "Name": "Toy",
+    "Description": "Toy",
+    "Price": 80,
+    "Type": "toys",
+    "Exp": 20,
+    "Amount": 0,
+    "ImagePath": "/Resources/toy.png"
+  }
+
+]

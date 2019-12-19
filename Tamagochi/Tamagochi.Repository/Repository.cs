@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using Tamagochi.Repository.Data;
+using System.ComponentModel;
 
 namespace Tamagochi.Repository
 {
@@ -136,9 +137,10 @@ namespace Tamagochi.Repository
         {
             foreach (var newitem in user.Items)
             {
-                if (item == newitem)
+                if (item.ImagePath == newitem.ImagePath)
                 {
                     newitem.Amount += 1;
+                    return;
                 }
             }
             Item item1 = new Item()
@@ -148,17 +150,24 @@ namespace Tamagochi.Repository
                 Price = item.Price,
                 Exp = item.Exp,
                 Type = item.Type,
-                Amount = 1
+                Amount = 1,
+                ImagePath = item.ImagePath
             };
             user.Items.Add(item1);
         }
         public void UseItems(User user, Item item)
         {
-            if(item.Amount == 0)
+            foreach (var useritem in user.Items)
             {
-                item.Amount -= 1;
+                if(useritem.ImagePath == item.ImagePath)
+                {
+                    item.Amount -= 1;
+                    AddExp(user, item.Exp);
+                }
+            }
+            if (item.Amount == 0)
+            {
                 user.Items.Remove(item);
-                AddExp(user, item.Exp);
             }
         }
         public void FindTypeOfItems()

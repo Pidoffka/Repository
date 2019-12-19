@@ -4,6 +4,5 @@
              xmlns:local="clr-namespace:Tamagotchi.WPF"
              StartupUri="Logon.xaml">
     <Application.Resources>
-         
     </Application.Resources>
 </Application>

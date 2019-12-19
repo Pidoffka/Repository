@@ -22,7 +22,10 @@
     <None Remove="Resources\korgi6.jpg" />
     <None Remove="Resources\korgi7.png" />
     <None Remove="Resources\livingroom.jpg" />
+    <None Remove="Resources\meat.png" />
+    <None Remove="Resources\shop.png" />
     <None Remove="Resources\tamagotchi.jpg" />
+    <None Remove="Resources\toy.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,7 +41,10 @@
 
 
   <ItemGroup>
+    <Resource Include="Resources\meat.png" />
+    <Resource Include="Resources\shop.png" />
     <Resource Include="Resources\tamagotchi.jpg" />
+    <Resource Include="Resources\toy.png" />
   </ItemGroup>
 
 </Project>

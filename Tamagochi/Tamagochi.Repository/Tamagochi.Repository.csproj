@@ -6,7 +6,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\meat.png" />
+    <None Remove="Resources\toy.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\meat.png" />
+    <Resource Include="Resources\toy.png" />
   </ItemGroup>
 
 </Project>

@@ -11,7 +11,11 @@
             <ColumnDefinition Width="600"/>
             <ColumnDefinition Width="200"/>
         </Grid.ColumnDefinitions>
-        <TabControl>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <TabControl Grid.RowSpan="2">
             <TabItem Header="Home" Width="120">
                 <Grid>
                     <Grid.Background>
@@ -26,10 +30,10 @@
                                VerticalAlignment="Center" HorizontalAlignment="Left" Margin="137,0,0,0" AutomationProperties.IsColumnHeader="True" >
                     </Image>
                     <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="100">
-                        <Button x:Name="FeedButton" Content="feed" Width="140" Height="50" Margin="10" Background="PeachPuff" BorderThickness="4"
+                        <Button x:Name="FeedButton" Content="feed" Width="120" Height="40" Margin="10" Background="PeachPuff" BorderThickness="4"
                                 Foreground="BlueViolet" FontSize="14" Click="FeedButton_Click"/>
-                        <Button x:Name="PlayButton" Content="play" Width="140" Height="50" Margin="10" Background="PeachPuff" BorderThickness="4" Foreground="BlueViolet" 
-                                    FontSize="14" Click="FeedButton_Click"/>
+                        <Button x:Name="PlayButton" Content="play" Width="120" Height="40" Margin="10" Background="PeachPuff" BorderThickness="4" Foreground="BlueViolet" 
+                                    FontSize="14" Click="PlayButton_Click"/>
                     </StackPanel>
                 </Grid>
             </TabItem>
@@ -46,18 +50,32 @@
                     <ListBox Grid.Row="1" x:Name="ListOfItems">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <WrapPanel>
-                                    <Image Source="{Binding Path}"></Image>
-                                    <Label Content="{Binding Name}"></Label>
-                                    <Label Content="{Binding Description}"></Label>
-                                    <Label Content="{Binding Price}"></Label>
-                                    <Label Content="{Binding Exp}"></Label>
-                                </WrapPanel>
+                                <StackPanel>
+                                    <Image Source="{Binding Path=ImagePath}" Width="100" Height="75"></Image>
+                                    <TextBlock TextWrapping="Wrap">
+                                        <Run Text="Name: "></Run>
+                                        <Run Text="{Binding Name}" FontWeight="Bold" />
+                                    </TextBlock>
+                                    <TextBlock TextWrapping="Wrap">
+                                        <Run Text="Description: "></Run>
+                                        <Run Text="{Binding Description}" FontWeight="Bold" />
+                                    </TextBlock>
+                                    <TextBlock TextWrapping="Wrap">
+                                        <Run Text="Price: "></Run>
+                                        <Run Text="{Binding Price}" FontWeight="Bold" />
+                                    </TextBlock>
+                                    <TextBlock TextWrapping="Wrap">
+                                        <Run Text="Exp: "></Run>
+                                        <Run FontWeight="Bold">+</Run>
+                                        <Run Text="{Binding Exp}" FontWeight="Bold" />
+                                    </TextBlock>
+                                </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
                     <WrapPanel Grid.Row="2" HorizontalAlignment="Center">
-                        <Button x:Name="Buy" Content="Buy" Width="150" Margin="10 0"></Button>
+                        <Button x:Name="Buy" Click="Buy_Click"
+                                Content="Buy" Width="150" Margin="10 0"></Button>
                     </WrapPanel>
                 </Grid>
             </TabItem>
@@ -70,26 +88,39 @@
                     <ListBox x:Name="UserItems">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <WrapPanel Orientation="Vertical">
-                                    <Image Source="{Binding Path}"></Image>
-                                    <Label Content="{Binding Name}"></Label>
-                                    <Label Content="{Binding Description}"></Label>
-                                    <Label Content="{Binding Price}"></Label>
-                                    <Label Content="{Binding Exp}"></Label>
-                                </WrapPanel>
+                                <StackPanel>
+                                    <Image Source="{Binding Path=ImagePath}" Width="100" Height="75"></Image>
+                                    <TextBlock TextWrapping="Wrap">
+                                        <Run Text="Name: "></Run>
+                                        <Run Text="{Binding Name}" FontWeight="Bold" />
+                                    </TextBlock>
+                                    <TextBlock TextWrapping="Wrap">
+                                        <Run Text="Description: "></Run>
+                                        <Run Text="{Binding Description}" FontWeight="Bold" />
+                                    </TextBlock>
+                                    <TextBlock TextWrapping="Wrap">
+                                        <Run Text="Price: "></Run>
+                                        <Run Text="{Binding Price}" FontWeight="Bold" />
+                                    </TextBlock>
+                                    <TextBlock TextWrapping="Wrap">
+                                        <Run Text="Exp: "></Run>
+                                        <Run FontWeight="Bold">+</Run>
+                                        <Run Text="{Binding Exp}" FontWeight="Bold" />
+                                    </TextBlock>
+                                    <TextBlock TextWrapping="Wrap">
+                                        <Run Text="Amount: "></Run>
+                                        <Run Text="{Binding Amount}" FontWeight="Bold" />
+                                    </TextBlock>
+                                </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
-                    <Button Grid.Row="1" Width="150" Content="Return" Click="Return_Click" Name="Return"></Button>
                 </Grid>
             </TabItem>
         </TabControl>
-        <WrapPanel Orientation="Vertical" Grid.Column="1" Background="LightPink" Width="200">
+        <WrapPanel Orientation="Vertical" Grid.Column="1" Background="LightPink" >
             <GroupBox Header="Name">
                 <TextBlock  x:Name="NameBox" Text="{Binding Name}"></TextBlock>
-            </GroupBox>
-            <GroupBox Header="Last Feeding At">
-                <TextBlock x:Name="FeedingBox" Text="{Binding LastFeedingAt}"></TextBlock>
             </GroupBox>
             <GroupBox Header="Money">
                 <TextBlock x:Name="MoneyBox" Text="{Binding Money}"></TextBlock>
@@ -100,7 +131,12 @@
             <GroupBox Header="Progress Bar">
                 <ProgressBar x:Name="Level" Minimum="0" Height="25" Width="200" VerticalAlignment="Bottom" Margin="0"  />
             </GroupBox>
-            <Button x:Name="Cancel" Click="Cancel_Click" Content="Cancel" Width="150" Margin="0 232 0 0"></Button>
+
         </WrapPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" 
+                   VerticalAlignment="Center" Background="LightPink" Width="212">
+            <Button x:Name="Update" Click="Update_Click" Content="Update" Width="120"/>
+            <Button x:Name="Cancel" Click="Cancel_Click" Content="Cancel" Width="120" Margin="0 5"/>
+        </StackPanel>
     </Grid>
 </Window>

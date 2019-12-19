@@ -1,7 +1,1 @@
-{
-  "TypeOfItems": [
-    "food",
-    "clothes"
-  ],
-  "Duration": 200
-}
+{"TypeItems":null,"MinDuration":0.0}
