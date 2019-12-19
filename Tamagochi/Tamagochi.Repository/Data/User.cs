@@ -25,6 +25,7 @@ namespace Tamagochi.Repository.Data
             Password = password;
             Name = name;
             Items = new List<Item>();
+            Level = 1;
         }
     }
 }
