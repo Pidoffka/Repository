@@ -48,7 +48,6 @@ namespace Tamagochi.Repository
         }
         private class Data
         {
-            public List<string> TypeItems { get; set; }
             public double MinDuration { get; set; }
         }
         private void Serialize<T>(string fileName, T data)

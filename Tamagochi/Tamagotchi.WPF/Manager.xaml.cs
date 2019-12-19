@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -22,8 +23,11 @@ namespace Tamagotchi.WPF
     {
         private Repository _repository;
         private User _user;
+        System.Timers.Timer timer = new System.Timers.Timer(10000);
         public Manager(User user, Repository repository)
         {
+            timer.Elapsed += new System.Timers.ElapsedEventHandler(OnTimerHandler1);
+            timer.Enabled = true;
             InitializeComponent();
             _user = user;
             _repository = repository;
@@ -87,6 +91,16 @@ namespace Tamagotchi.WPF
             var window = new Move(_repository, _user, "toys");
             window.ShowDialog();
             UpdateResources();
+        }
+        private void OnTimerHandler1(object sender, ElapsedEventArgs e)
+        {
+            this.Dispatcher.Invoke(new IdleDelegate(MoneyTime), System.Windows.Threading.DispatcherPriority.Normal, null);
+            this.Dispatcher.Invoke(new IdleDelegate(UpdateResources), System.Windows.Threading.DispatcherPriority.Normal, null);
+        }
+        private delegate void IdleDelegate();
+        private void MoneyTime()
+        {
+            _user.Money += 10;
         }
     }
 }
