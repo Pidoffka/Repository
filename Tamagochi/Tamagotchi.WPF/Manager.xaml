@@ -5,12 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tamagotchi.WPF"
         mc:Ignorable="d"
-        Title="Manager" Height="450" Width="720"
-        WindowStartupLocation="CenterScreen" Background="LightPink">
+        Title="Manager" Height="446" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="500"/>
-            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="600"/>
+            <ColumnDefinition Width="200"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -19,10 +18,6 @@
         <TabControl Grid.RowSpan="2">
             <TabItem Header="Home" Width="120">
                 <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="139*"/>
-                        <ColumnDefinition Width="108*"/>
-                    </Grid.ColumnDefinitions>
                     <Grid.Background>
                         <ImageBrush ImageSource="/Resources/livingroom.jpg"/>
                     </Grid.Background>
@@ -32,9 +27,9 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Image Source="/Resources/korgi7.png" Grid.Row="1" Width="220" Height="150" Stretch="UniformToFill"
-                               VerticalAlignment="Top" HorizontalAlignment="Left" Margin="107,16,0,0" AutomationProperties.IsColumnHeader="True" Grid.RowSpan="2" Grid.ColumnSpan="2" >
+                               VerticalAlignment="Center" HorizontalAlignment="Left" Margin="137,0,0,0" AutomationProperties.IsColumnHeader="True" >
                     </Image>
-                    <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="100" Grid.ColumnSpan="2" Margin="107,0,0,0">
+                    <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="100">
                         <Button x:Name="FeedButton" Content="feed" Width="120" Height="40" Margin="10" Background="PeachPuff" BorderThickness="4"
                                 Foreground="BlueViolet" FontSize="14" Click="FeedButton_Click"/>
                         <Button x:Name="PlayButton" Content="play" Width="120" Height="40" Margin="10" Background="PeachPuff" BorderThickness="4" Foreground="BlueViolet" 
@@ -44,6 +39,10 @@
             </TabItem>
             <TabItem Header="Shop" Width="120">
                 <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="217*"/>
+                        <ColumnDefinition Width="377*"/>
+                    </Grid.ColumnDefinitions>
                     <Grid.Background>
                         <ImageBrush ImageSource="/Resources/shopp.jpg" />
                     </Grid.Background>
@@ -52,7 +51,7 @@
                         <RowDefinition/>
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
-                    <GroupBox Header="Type of Items" Height="45">
+                    <GroupBox Header="Type of Items" Height="45" Grid.ColumnSpan="2">
                         <ComboBox x:Name="TypeOfItems" DisplayMemberPath="Type" SelectionChanged="TypeOfItems_SelectionChanged"/>
                     </GroupBox>
                     <ListBox Grid.Row="1" x:Name="ListOfItems" Background="Transparent" Grid.ColumnSpan="2">
@@ -81,9 +80,9 @@
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
-                    <WrapPanel Grid.Row="2" HorizontalAlignment="Center" Grid.ColumnSpan="2" Grid.RowSpan="2">
+                    <WrapPanel Grid.Row="1" HorizontalAlignment="Left" Grid.ColumnSpan="2" Margin="212,337,0,0" Grid.RowSpan="2">
                         <Button x:Name="Buy" Click="Buy_Click"
-                                Content="Buy" Width="150" Margin="0 10" Background="PaleGreen"></Button>
+                                Content="Buy" Width="150" Margin="10 0" Background="PaleGreen" VerticalAlignment="Bottom"></Button>
                     </WrapPanel>
                 </Grid>
             </TabItem>
@@ -93,7 +92,7 @@
                         <RowDefinition/>
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
-                    <ListBox x:Name="UserItems">
+                    <ListBox x:Name="UserItems" Background="Bisque">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
@@ -126,7 +125,7 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        <WrapPanel Orientation="Vertical" Grid.Column="1" Background="LightPink" Margin="0 0 20 0">
+        <WrapPanel Orientation="Vertical" Grid.Column="1" Background="LightPink" >
             <GroupBox Header="Name">
                 <TextBlock  x:Name="NameBox" Text="{Binding Name}"></TextBlock>
             </GroupBox>
@@ -142,7 +141,7 @@
 
         </WrapPanel>
         <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" 
-                   VerticalAlignment="Center" Background="LightPink" Width="212" Margin="0 0 20 0">
+                   VerticalAlignment="Center" Background="LightPink" Width="212">
             <Button x:Name="Update" Click="Update_Click" Content="Update" Width="120" Background="LightGoldenrodYellow"/>
             <Button x:Name="Cancel" Click="Cancel_Click" Content="Cancel" Width="120" Margin="0 5" Background="PaleVioletRed"/>
         </StackPanel>
