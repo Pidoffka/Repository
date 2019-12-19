@@ -13,10 +13,10 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <WrapPanel Grid.Row="1" HorizontalAlignment="Center">
-            <Button x:Name="Use" Content="Use" Click="Use_Click" Margin="5 0" Width="120"/>
-            <Button x:Name="Cancel" Content="Cancel" Click="Cancel_Click" Margin="5 0" Width="120"/>
+            <Button x:Name="Use" Content="Use" Click="Use_Click" Margin="5 0" Width="120" Background="LightGoldenrodYellow"/>
+            <Button x:Name="Cancel" Content="Cancel" Click="Cancel_Click" Margin="5 0" Width="120" Background="PaleVioletRed"/>
         </WrapPanel>
-        <ListBox x:Name="MoveItems">
+        <ListBox x:Name="MoveItems" Background="Bisque">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>

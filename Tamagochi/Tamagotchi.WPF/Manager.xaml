@@ -82,7 +82,7 @@
                     </ListBox>
                     <WrapPanel Grid.Row="1" HorizontalAlignment="Left" Grid.ColumnSpan="2" Margin="212,337,0,0" Grid.RowSpan="2">
                         <Button x:Name="Buy" Click="Buy_Click"
-                                Content="Buy" Width="150" Margin="10 0" Background="PaleGreen"></Button>
+                                Content="Buy" Width="150" Margin="10 0" Background="PaleGreen" VerticalAlignment="Bottom"></Button>
                     </WrapPanel>
                 </Grid>
             </TabItem>
@@ -92,7 +92,7 @@
                         <RowDefinition/>
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
-                    <ListBox x:Name="UserItems">
+                    <ListBox x:Name="UserItems" Background="Bisque">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
