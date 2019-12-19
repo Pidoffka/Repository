@@ -55,7 +55,7 @@
                     <GroupBox Header="Type of Items" Height="45">
                         <ComboBox x:Name="TypeOfItems" DisplayMemberPath="Type" SelectionChanged="TypeOfItems_SelectionChanged"/>
                     </GroupBox>
-                    <ListBox Grid.Row="0" x:Name="ListOfItems" Background="Transparent" Grid.ColumnSpan="2">
+                    <ListBox Grid.Row="1" x:Name="ListOfItems" Background="Transparent" Grid.ColumnSpan="2">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
