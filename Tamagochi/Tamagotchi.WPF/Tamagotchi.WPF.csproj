@@ -18,19 +18,28 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Resources\fish.png" />
+    <None Remove="Resources\kibble.png" />
     <None Remove="Resources\kitchen.jpg" />
-    <None Remove="Resources\korgi6.jpg" />
     <None Remove="Resources\korgi7.png" />
     <None Remove="Resources\livingroom.jpg" />
     <None Remove="Resources\meat.png" />
-    <None Remove="Resources\shop.png" />
+    <None Remove="Resources\sausage.png" />
+    <None Remove="Resources\shopp.jpg" />
     <None Remove="Resources\tamagotchi.jpg" />
     <None Remove="Resources\toy.png" />
+    <None Remove="Resources\toy_ball.png" />
+    <None Remove="Resources\toy_plate.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\fish.png" />
+    <Resource Include="Resources\kibble.png" />
+    <Resource Include="Resources\sausage.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Resources\kitchen.jpg" />
-    <Resource Include="Resources\korgi6.jpg" />
     <Resource Include="Resources\korgi7.png" />
     <Resource Include="Resources\livingroom.jpg" />
   </ItemGroup>
@@ -42,9 +51,11 @@
 
   <ItemGroup>
     <Resource Include="Resources\meat.png" />
-    <Resource Include="Resources\shop.png" />
+    <Resource Include="Resources\shopp.jpg" />
     <Resource Include="Resources\tamagotchi.jpg" />
     <Resource Include="Resources\toy.png" />
+    <Resource Include="Resources\toy_ball.png" />
+    <Resource Include="Resources\toy_plate.png" />
   </ItemGroup>
 
 </Project>

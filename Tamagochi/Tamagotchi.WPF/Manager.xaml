@@ -39,32 +39,39 @@
             </TabItem>
             <TabItem Header="Shop" Width="120">
                 <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="217*"/>
+                        <ColumnDefinition Width="377*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.Background>
+                        <ImageBrush ImageSource="/Resources/shopp.jpg" />
+                    </Grid.Background>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
                         <RowDefinition/>
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
-                    <GroupBox Header="Type of Items" Height="45">
+                    <GroupBox Header="Type of Items" Height="45" Grid.ColumnSpan="2">
                         <ComboBox x:Name="TypeOfItems" DisplayMemberPath="Type" SelectionChanged="TypeOfItems_SelectionChanged"/>
                     </GroupBox>
-                    <ListBox Grid.Row="1" x:Name="ListOfItems">
+                    <ListBox Grid.Row="1" x:Name="ListOfItems" Background="Transparent" Grid.ColumnSpan="2">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
                                     <Image Source="{Binding Path=ImagePath}" Width="100" Height="75"></Image>
-                                    <TextBlock TextWrapping="Wrap">
+                                    <TextBlock TextWrapping="Wrap" Background="Beige" >
                                         <Run Text="Name: "></Run>
                                         <Run Text="{Binding Name}" FontWeight="Bold" />
                                     </TextBlock>
-                                    <TextBlock TextWrapping="Wrap">
+                                    <TextBlock TextWrapping="Wrap" Background="Beige">
                                         <Run Text="Description: "></Run>
                                         <Run Text="{Binding Description}" FontWeight="Bold" />
                                     </TextBlock>
-                                    <TextBlock TextWrapping="Wrap">
+                                    <TextBlock TextWrapping="Wrap" Background="Beige">
                                         <Run Text="Price: "></Run>
                                         <Run Text="{Binding Price}" FontWeight="Bold" />
                                     </TextBlock>
-                                    <TextBlock TextWrapping="Wrap">
+                                    <TextBlock TextWrapping="Wrap" Background="Beige">
                                         <Run Text="Exp: "></Run>
                                         <Run FontWeight="Bold">+</Run>
                                         <Run Text="{Binding Exp}" FontWeight="Bold" />
@@ -73,9 +80,9 @@
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
-                    <WrapPanel Grid.Row="2" HorizontalAlignment="Center">
+                    <WrapPanel Grid.Row="1" HorizontalAlignment="Left" Grid.ColumnSpan="2" Margin="212,337,0,0" Grid.RowSpan="2">
                         <Button x:Name="Buy" Click="Buy_Click"
-                                Content="Buy" Width="150" Margin="10 0"></Button>
+                                Content="Buy" Width="150" Margin="10 0" Background="PaleGreen"></Button>
                     </WrapPanel>
                 </Grid>
             </TabItem>
@@ -135,8 +142,8 @@
         </WrapPanel>
         <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" 
                    VerticalAlignment="Center" Background="LightPink" Width="212">
-            <Button x:Name="Update" Click="Update_Click" Content="Update" Width="120"/>
-            <Button x:Name="Cancel" Click="Cancel_Click" Content="Cancel" Width="120" Margin="0 5"/>
+            <Button x:Name="Update" Click="Update_Click" Content="Update" Width="120" Background="LightGoldenrodYellow"/>
+            <Button x:Name="Cancel" Click="Cancel_Click" Content="Cancel" Width="120" Margin="0 5" Background="PaleVioletRed"/>
         </StackPanel>
     </Grid>
 </Window>
