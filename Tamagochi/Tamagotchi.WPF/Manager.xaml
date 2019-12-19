@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tamagotchi.WPF"
         mc:Ignorable="d"
-        Title="Manager" Height="446" Width="800">
+        WindowStartupLocation="CenterScreen"
+        Title="Manager" Height="446" Width="710" Background="LightPink">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="600"/>
+            <ColumnDefinition Width="500"/>
             <ColumnDefinition Width="200"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -27,7 +28,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Image Source="/Resources/korgi7.png" Grid.Row="1" Width="220" Height="150" Stretch="UniformToFill"
-                               VerticalAlignment="Center" HorizontalAlignment="Left" Margin="137,0,0,0" AutomationProperties.IsColumnHeader="True" >
+                               VerticalAlignment="Top" HorizontalAlignment="Left" Margin="107,13,0,0" AutomationProperties.IsColumnHeader="True" Grid.RowSpan="2" >
                     </Image>
                     <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="100">
                         <Button x:Name="FeedButton" Content="feed" Width="120" Height="40" Margin="10" Background="PeachPuff" BorderThickness="4"
@@ -39,10 +40,6 @@
             </TabItem>
             <TabItem Header="Shop" Width="120">
                 <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="217*"/>
-                        <ColumnDefinition Width="377*"/>
-                    </Grid.ColumnDefinitions>
                     <Grid.Background>
                         <ImageBrush ImageSource="/Resources/shopp.jpg" />
                     </Grid.Background>
@@ -80,9 +77,9 @@
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
-                    <WrapPanel Grid.Row="1" HorizontalAlignment="Left" Grid.ColumnSpan="2" Margin="212,337,0,0" Grid.RowSpan="2">
+                    <WrapPanel Grid.Row="2" HorizontalAlignment="Center">
                         <Button x:Name="Buy" Click="Buy_Click"
-                                Content="Buy" Width="150" Margin="10 0" Background="PaleGreen" VerticalAlignment="Bottom"></Button>
+                                Content="buy" Width="150" Margin="10 0" Background="PaleGreen" VerticalAlignment="Bottom"></Button>
                     </WrapPanel>
                 </Grid>
             </TabItem>
@@ -142,8 +139,8 @@
         </WrapPanel>
         <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" 
                    VerticalAlignment="Center" Background="LightPink" Width="212">
-            <Button x:Name="Update" Click="Update_Click" Content="Update" Width="120" Background="LightGoldenrodYellow"/>
-            <Button x:Name="Cancel" Click="Cancel_Click" Content="Cancel" Width="120" Margin="0 5" Background="PaleVioletRed"/>
+            <Button x:Name="Update" Click="Update_Click" Content="update" Width="120" Background="LightGoldenrodYellow"/>
+            <Button x:Name="Cancel" Click="Cancel_Click" Content="cancel" Width="120" Margin="0 5" Background="PaleVioletRed"/>
         </StackPanel>
     </Grid>
 </Window>

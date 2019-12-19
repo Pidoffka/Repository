@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Tamagotchi.WPF"
         mc:Ignorable="d"
         Title="Move" Height="444" Width="378"
+        Background="Bisque"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
@@ -13,8 +14,8 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <WrapPanel Grid.Row="1" HorizontalAlignment="Center">
-            <Button x:Name="Use" Content="Use" Click="Use_Click" Margin="5 0" Width="120" Background="LightGoldenrodYellow"/>
-            <Button x:Name="Cancel" Content="Cancel" Click="Cancel_Click" Margin="5 0" Width="120" Background="PaleVioletRed"/>
+            <Button x:Name="Use" Content="use" Click="Use_Click" Margin="5 0" Width="120" Background="LightGoldenrodYellow"/>
+            <Button x:Name="Cancel" Content="cancel" Click="Cancel_Click" Margin="5 0" Width="120" Background="PaleVioletRed"/>
         </WrapPanel>
         <ListBox x:Name="MoveItems" Background="Bisque">
             <ListBox.ItemTemplate>

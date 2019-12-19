@@ -37,7 +37,7 @@ namespace Tamagotchi.WPF
                 MessageBox.Show("Enter password please", "Error");
                 return;
             }
-            User user = repository.checkUser<string>(LoginBox.Text, PasswordBox.Password);
+            User user = repository.checkUser(LoginBox.Text, PasswordBox.Password);
             if (user != null)
             {
                 var window = new Manager(user, repository);
